@@ -30,3 +30,15 @@
 *.exe
 *.out
 *.app
+
+# User-specific files
+*.rsuser
+*.user
+*.suo
+*.ncb
+*.pdb
+*.idb
+*.dep
+*.exp
+*.ilk
+*.aps

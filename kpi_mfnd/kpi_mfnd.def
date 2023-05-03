@@ -1,0 +1,4 @@
+EXPORTS
+ kpi_CreateInstance
+ kmp_GetTestModule
+ kmp_GetTestTagInfo
