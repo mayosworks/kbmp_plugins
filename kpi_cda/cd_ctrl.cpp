@@ -131,11 +131,11 @@ bool CDCtrl::ReadTOC(TOC& toc) const
 	CopyMemory(&toc, tocPtr, sizeof(toc));
 
 	// TOCサイズをエディアン変換する
-	toc.tocLength = ConvEndian16(toc.tocLength);
+	toc.toc_length = ConvEndian16(toc.toc_length);
 
 	// 各トラックのアドレスをエディアン変換する
-	for (UINT i = 0; i <= toc.endTrackNo; ++i) {
-		toc.trackList[i].stdSector = ConvEndian32(toc.trackList[i].stdSector);
+	for (UINT i = 0; i <= toc.end_track_no; ++i) {
+		toc.track_list[i].std_sector = ConvEndian32(toc.track_list[i].std_sector);
 	}
 
 	return true;

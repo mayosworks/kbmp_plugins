@@ -23,14 +23,14 @@
 struct TRACK
 {
 	BYTE	reserved1;	// 予約済み
-	BYTE	trackType;	// ADR/属性 ４～７ビット：ADR
+	BYTE	track_type;	// ADR/属性 ４～７ビット：ADR
 						// 0ビット：プリエンファシスあり(=0)/なし(=1)
 						// 1ビット：コピー禁止(=0)/許可(=1)
 						// 2ビット：オーディオトラック(=0)/データトラック(=1)
 						// 3ビット：2チャンネル(=0)/4チャンネル(=1)オーディオ
-	BYTE	trackNo;	// トラック№
+	BYTE	track_no;	// トラック№
 	BYTE	reserved2;	// 予約済み
-	UINT	stdSector;	// 開始アドレス（LBA or MSB）
+	UINT	std_sector;	// 開始アドレス（LBA or MSB）
 };
 
 //-----------------------------------------------------------------------------
@@ -38,10 +38,10 @@ struct TRACK
 //-----------------------------------------------------------------------------
 struct TOC
 {
-	WORD	tocLength;
-	BYTE	stdTrackNo;
-	BYTE	endTrackNo;
-	TRACK	trackList[CDDA_MAX_TRACK];
+	WORD	toc_length;
+	BYTE	std_track_no;
+	BYTE	end_track_no;
+	TRACK	track_list[CDDA_MAX_TRACK];
 };
 
 //-----------------------------------------------------------------------------

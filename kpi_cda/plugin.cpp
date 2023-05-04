@@ -85,14 +85,14 @@ static HKMP WINAPI Open(const char* path, SOUNDINFO* info)
 	// トラックが範囲内かどうかを調べる
 	// パスは、「Q:\Track01.cda」という形なので
 	int track = (path[8] - L'0') * 10 + (path[9] - L'0') - 1;
-	if (track < 0 || track >= toc.endTrackNo) {
+	if (track < 0 || track >= toc.end_track_no) {
 		cxt->cd_ctrl.CloseDevice();
 		delete cxt;
 		return NULL;
 	}
 
 	// データトラックなら再生しない
-	if (toc.trackList[track].trackType & 0x04) {
+	if (toc.track_list[track].track_type & 0x04) {
 		cxt->cd_ctrl.CloseDevice();
 		delete cxt;
 		return NULL;
@@ -111,8 +111,8 @@ static HKMP WINAPI Open(const char* path, SOUNDINFO* info)
 		return NULL;
 	}
 
-	cxt->std_sec = toc.trackList[track    ].stdSector;
-	cxt->end_sec = toc.trackList[track + 1].stdSector - 1;
+	cxt->std_sec = toc.track_list[track    ].std_sector;
+	cxt->end_sec = toc.track_list[track + 1].std_sector - 1;
 	cxt->cur_sec = cxt->std_sec;
 
 	info->dwSeekable		= 1;
